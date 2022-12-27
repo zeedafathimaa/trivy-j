@@ -6,9 +6,14 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh './mvnw clean install site surefire-report:report'
-        sh 'tree'
+        sh 'docker build -t darinpope/java-web-app:latest .'
       }
     }
+    stage('Scan') {
+      steps{
+        sh 'trivy darinpope/java-web-app:latest'
+      }
+    }
+
   }
 }
