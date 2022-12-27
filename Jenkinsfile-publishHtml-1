@@ -6,12 +6,12 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t trivyj/java-web-app:latest .'
+        sh 'docker build -t zeedafathimaa/trivy-j/java-web-app:latest .'
       }
     }
     stage('Scan') {
       steps{
-        sh 'trivy trivyj/java-web-app:latest'
+        sh 'zeedafathimaa/trivy-j/java-web-app:latest'
       }
     }
 
